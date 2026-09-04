@@ -65,4 +65,15 @@ public class TGrafo {
 		System.out.println("\nGrau de entrada é "+degree);
 		return degree;
 	}
+
+	public int outDegree(int v){
+		int degree = 0;
+		for(int i = 0; i < n; i++){
+			if(adj[v][i] == 1){
+				degree++;
+			}
+		}
+		System.out.println("\nGrau de saída é "+degree);
+		return degree;
+	}
 }
