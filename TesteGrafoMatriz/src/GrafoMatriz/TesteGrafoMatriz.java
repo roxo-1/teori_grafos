@@ -14,6 +14,7 @@ public class TesteGrafoMatriz {
 		g.inDegree(3);
 		g.outDegree(3);
 		g.degree(3);
+		g.fonte(3);
 		// mostra o grafo preenchido
 		g.show();
 	}

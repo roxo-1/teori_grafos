@@ -84,4 +84,17 @@ public class TGrafo {
 		System.out.println("\nGrau de total é "+degree);
 		return degree;
 	}
+
+	public int fonte(int v){
+		int entrada = inDegree(v);
+		int saida = outDegree(v);
+		if (entrada == 0 && saida > 0){
+			System.out.println("É fonte "+1);
+			return 1;
+		}
+		else{
+			System.out.println("Não é fonte "+0);
+			return 0;
+		}
+	}
 }
