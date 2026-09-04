@@ -24,10 +24,9 @@ public class TesteGrafoMatriz {
 		g.insereAND(2,1);
 		g.insereAND(2,3);
 		g.insereAND(1,3);
+		g.degreeND(3);
 		g.showND();
 
-		g.removeAND(0,1);
-		g.showND();
 		// mostra o grafo preenchido
 		//g.show();
 	}

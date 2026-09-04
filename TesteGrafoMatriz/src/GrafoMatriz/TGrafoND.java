@@ -40,7 +40,38 @@ public class TGrafoND {
 	    }
 	}
 
-		public void showND() {
+    	//calcula e retorna o grau de entrada de um vértice v de um grafo dirigido
+	public int inDegreeND(int v){
+		int degree = 0;
+		for(int i = 0; i < n; i++){
+			if(adj[i][v] == 1){
+				degree++;
+			}
+		}
+		System.out.println("\nGrau de entrada é "+degree);
+		return degree;
+	}
+
+	public int outDegreeND(int v){
+		int degree = 0;
+		for(int i = 0; i < n; i++){
+			if(adj[v][i] == 1){
+				degree++;
+			}
+		}
+		System.out.println("\nGrau de saída é "+degree);
+		return degree;
+	}
+
+	public int degreeND(int v){
+		int entrada = inDegreeND(v);
+		int saida = outDegreeND(v);
+		int degree = entrada + saida;
+		System.out.println("\nGrau de total é "+degree);
+		return degree;
+	}
+
+	public void showND() {
 	    System.out.println("n: " + n );
 	    System.out.println("m: " + m );
 	    for( int i=0; i < n; i++){
