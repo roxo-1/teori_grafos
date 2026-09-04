@@ -110,4 +110,17 @@ public class TGrafo {
 			return 0;
 		}
 	}
+
+	public int ehSimetrico(TGrafo g){
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < n; j++){
+				if(adj[i][j] != adj[j][i]){
+					System.out.println("Não é simétrico "+0);
+					return 0;
+				}
+			}
+		}
+		System.out.println("É simétrico "+1);
+		return 1;
+	}
 }

@@ -16,6 +16,7 @@ public class TesteGrafoMatriz {
 		g.degree(3);
 		g.fonte(3);
 		g.sorvedouro(3);
+		g.ehSimetrico(g);
 		// mostra o grafo preenchido
 		g.show();
 	}
