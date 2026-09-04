@@ -76,4 +76,12 @@ public class TGrafo {
 		System.out.println("\nGrau de saída é "+degree);
 		return degree;
 	}
+
+	public int degree(int v){
+		int entrada = inDegree(v);
+		int saida = outDegree(v);
+		int degree = entrada + saida;
+		System.out.println("\nGrau de total é "+degree);
+		return degree;
+	}
 }
