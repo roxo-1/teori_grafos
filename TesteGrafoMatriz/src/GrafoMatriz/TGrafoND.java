@@ -1,0 +1,55 @@
+package GrafoMatriz;
+
+public class TGrafoND {
+	// Atributos Privados
+	private	int n; // quantidade de vértices
+	private	int m; // quantidade de arestas
+	private	int adj[][]; //matriz de adjacência
+	// Métodos Públicos
+	public TGrafoND( int n) {  // construtor
+	    this.n = n;
+	    // No início dos tempos não há arestas
+	    this.m = 0; 
+	    // alocação da matriz do TGrafo
+	    this.adj = new int [n][n];
+
+	    // Inicia a matriz com zeros
+		for(int i = 0; i< n; i++)
+			for(int j = 0; j< n; j++)
+				this.adj[i][j]=0;	
+	}
+
+	// Insere uma aresta no Grafo Não Dirigido tal que
+	// v é adjacente a w
+	public void insereAND(int v, int w) {
+	    // testa se nao temos a aresta
+	    if(adj[v][w] == 0 ){
+	        adj[v][w] = 1;
+			adj[w][v] = 1;
+	        m++; // atualiza qtd arestas
+	    }
+	}
+	
+	// remove uma aresta v->w do Grafo Não Dirigido
+	public void removeAND(int v, int w) {
+	    // testa se temos a aresta
+	    if(adj[v][w] == 1 ){
+	        adj[v][w] = 0;
+			adj[w][v] = 0;
+	        m--; // atualiza qtd arestas
+	    }
+	}
+
+		public void showND() {
+	    System.out.println("n: " + n );
+	    System.out.println("m: " + m );
+	    for( int i=0; i < n; i++){
+	    	System.out.print("\n");
+	        for( int w=0; w < n; w++)
+	            if(adj[i][w] == 1)
+	            	System.out.print("Adj[" + i + "," + w + "]= 1" + " ");
+	            else System.out.print("Adj[" + i + "," + w + "]= 0" + " ");
+	    }
+	    System.out.println("\nEnfim da impressao do grafo." );
+	}
+}
