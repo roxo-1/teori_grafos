@@ -53,4 +53,16 @@ public class TGrafo {
 	    }
 	    System.out.println("\n\nfim da impressao do grafo." );
 	}
+
+	//calcula e retorna o grau de entrada de um vértice v de um grafo dirigido
+	public int inDegree(int v){
+		int degree = 0;
+		for(int i = 0; i < n; i++){
+			if(adj[i][v] == 1){
+				degree++;
+			}
+		}
+		System.out.println("\nGrau de entrada é "+degree);
+		return degree;
+	}
 }
