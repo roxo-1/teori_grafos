@@ -97,4 +97,17 @@ public class TGrafo {
 			return 0;
 		}
 	}
+
+	public int sorvedouro(int v){
+		int entrada = inDegree(v);
+		int saida = outDegree(v);
+		if (saida == 0 && entrada > 0){
+			System.out.println("É sorvedouro "+1);
+			return 1;
+		}
+		else{
+			System.out.println("Não é sorvedouro "+0);
+			return 0;
+		}
+	}
 }
