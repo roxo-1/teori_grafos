@@ -5,27 +5,28 @@ public class TGrafo {
 	// Atributos Privados
 	private	int n; // quantidade de vértices
 	private	int m; // quantidade de arestas
-	private	int adj[][]; //matriz de adjacência
+	private	float adj[][]; //matriz de adjacência com float agora
+
 	// Métodos Públicos
 	public TGrafo( int n) {  // construtor
 	    this.n = n;
 	    // No início dos tempos não há arestas
 	    this.m = 0; 
 	    // alocação da matriz do TGrafo
-	    this.adj = new int [n][n];
+	    this.adj = new float [n][n];
 
 	    // Inicia a matriz com zeros
 		for(int i = 0; i< n; i++)
 			for(int j = 0; j< n; j++)
-				this.adj[i][j]=0;	
+				this.adj[i][j]= Float.POSITIVE_INFINITY;	
 	}
 
 	// Insere uma aresta no Grafo tal que
 	// v é adjacente a w
-	public void insereA(int v, int w) {
+	public void insereA(int v, int w, float peso) {
 	    // testa se nao temos a aresta
-	    if(adj[v][w] == 0 ){
-	        adj[v][w] = 1;
+	    if(adj[v][w] == Float.POSITIVE_INFINITY ){
+	        adj[v][w] = peso;
 	        m++; // atualiza qtd arestas
 	    }
 	}
@@ -33,10 +34,44 @@ public class TGrafo {
 	// remove uma aresta v->w do Grafo	
 	public void removeA(int v, int w) {
 	    // testa se temos a aresta
-	    if(adj[v][w] == 1 ){
-	        adj[v][w] = 0;
+	    if(adj[v][w] != Float.POSITIVE_INFINITY ){
+	        adj[v][w] = Float.POSITIVE_INFINITY;
 	        m--; // atualiza qtd arestas
 	    }
+	}
+
+	public void removeV(int v) {
+		if (v < 0 || v >= n) {
+				System.out.println("Vértice inválido!");
+				return;
+			}
+
+		// cria nova matriz de suporte para ajuste
+		int novoN = n - 1;
+		float[][] novaAdj = new float[novoN][novoN];
+		int novoM = 0;
+
+		int novaLinha = 0;
+		for (int i = 0; i < n; i++) {
+			if (i == v) continue; // pula a linha do vértice removido
+			int novaColuna = 0;
+			for (int j = 0; j < n; j++) {
+				if (j == v) continue; // pula a coluna do vértice removido
+				novaAdj[novaLinha][novaColuna] = adj[i][j];
+					if (adj[i][j] != Float.POSITIVE_INFINITY) {
+						novoM++;
+					}
+					novaColuna++;
+				}
+				novaLinha++;
+			}
+
+			// passa os noovos valores usnado os suportes
+			this.adj = novaAdj;
+			this.n = novoN;
+			this.m = novoM;
+
+			System.out.println("Vértice " + v + " removido com sucesso.");
 	}
 	// Apresenta o Grafo contendo
 	// número de vértices, arestas
@@ -46,10 +81,12 @@ public class TGrafo {
 	    System.out.println("m: " + m );
 	    for( int i=0; i < n; i++){
 	    	System.out.print("\n");
-	        for( int w=0; w < n; w++)
-	            if(adj[i][w] == 1)
-	            	System.out.print("Adj[" + i + "," + w + "]= 1" + " ");
-	            else System.out.print("Adj[" + i + "," + w + "]= 0" + " ");
+	        for( int w=0; w < n; w++) {
+            	float peso = adj[i][w];
+            	if(peso != Float.POSITIVE_INFINITY)
+            		System.out.print("Adj[" + i + "," + w + "]=" + peso + " ");
+            	else System.out.print("Adj[" + i + "," + w + "]=inf ");
+				}
 	    }
 	    System.out.println("\n\nfim da impressao do grafo." );
 	}
@@ -58,22 +95,20 @@ public class TGrafo {
 	public int inDegree(int v){
 		int degree = 0;
 		for(int i = 0; i < n; i++){
-			if(adj[i][v] == 1){
+			if(adj[i][v] != Float.POSITIVE_INFINITY){
 				degree++;
 			}
 		}
-		System.out.println("\nGrau de entrada é "+degree);
 		return degree;
 	}
 
 	public int outDegree(int v){
 		int degree = 0;
 		for(int i = 0; i < n; i++){
-			if(adj[v][i] == 1){
+			if(adj[v][i] != Float.POSITIVE_INFINITY){
 				degree++;
 			}
 		}
-		System.out.println("\nGrau de saída é "+degree);
 		return degree;
 	}
 
@@ -81,7 +116,9 @@ public class TGrafo {
 		int entrada = inDegree(v);
 		int saida = outDegree(v);
 		int degree = entrada + saida;
-		System.out.println("\nGrau de total é "+degree);
+		System.out.println("\nGrau de entrada é "+ entrada);
+		System.out.println("\nGrau de saída é "+ saida);
+		System.out.println("\nGrau de total é "+ degree);
 		return degree;
 	}
 

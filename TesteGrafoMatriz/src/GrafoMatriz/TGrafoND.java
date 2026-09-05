@@ -39,6 +39,44 @@ public class TGrafoND {
 	        m--; // atualiza qtd arestas
 	    }
 	}
+	public void removeVND(int v) {
+		if (v < 0 || v >= n) {
+			System.out.println("Vértice inválido!");
+			return;
+		}
+
+		int novoN = n - 1;
+		int[][] novaAdj = new int[novoN][novoN];
+		int novoM = 0;
+
+		int novaLinha = 0;
+		for (int i = 0; i < n; i++) {
+			if (i == v) continue;
+			int novaColuna = 0;
+			for (int j = 0; j < n; j++) {
+				if (j == v) continue;
+				novaAdj[novaLinha][novaColuna] = adj[i][j];
+				novaColuna++;
+			}
+			novaLinha++;
+		}
+
+		// recontar arestas: como o grafo é simétrico,
+		// conto só a "metade de cima" da matriz para não contar cada aresta 2x
+		for (int i = 0; i < novoN; i++) {
+			for (int j = i + 1; j < novoN; j++) {
+				if (novaAdj[i][j] == 1) {
+					novoM++;
+				}
+			}
+		}
+
+		this.adj = novaAdj;
+		this.n = novoN;
+		this.m = novoM;
+
+		System.out.println("Vértice " + v + " removido com sucesso.");
+	}
 
     	//calcula e retorna o grau de entrada de um vértice v de um grafo dirigido
 	public int inDegreeND(int v){
