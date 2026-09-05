@@ -160,4 +160,13 @@ public class TGrafo {
 		System.out.println("É simétrico "+1);
 		return 1;
 	}
+
+	public void completo(){
+		int resultado = n * (n-1);
+		if (resultado == m) {
+			System.out.println("Grafo é completo");
+		} else {
+			System.out.println("Grafo não é completo");
+		}
+	}
 }

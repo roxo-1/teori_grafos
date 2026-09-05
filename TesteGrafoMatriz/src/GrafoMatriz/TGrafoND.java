@@ -109,6 +109,15 @@ public class TGrafoND {
 		return degree;
 	}
 
+	public void completoND(){
+		int resultado = n * (n-1) / 2;
+		if (resultado == m) {
+			System.out.println("Grafo é completo");
+		} else {
+			System.out.println("Grafo não é completo");
+		}
+	}
+
 	public void showND() {
 	    System.out.println("n: " + n );
 	    System.out.println("m: " + m );
