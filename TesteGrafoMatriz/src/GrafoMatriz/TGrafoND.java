@@ -130,4 +130,15 @@ public class TGrafoND {
 	    }
 	    System.out.println("\nEnfim da impressao do grafo." );
 	}
+
+	public void complementoND() {
+	    for( int i=0; i < n; i++){
+	    	System.out.print("\n");
+	        for( int w=0; w < n; w++)
+	            if(adj[i][w] == 1)
+	            	System.out.print("Adj[" + i + "," + w + "]= 0" + " ");
+	            else System.out.print("Adj[" + i + "," + w + "]= 1" + " ");
+	    }
+	    System.out.println("\nEnfim da impressao do grafo complemntar do não dirigido." );
+	}
 }

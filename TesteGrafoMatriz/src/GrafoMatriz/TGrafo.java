@@ -167,6 +167,20 @@ public class TGrafo {
 			System.out.println("Grafo é completo");
 		} else {
 			System.out.println("Grafo não é completo");
+
 		}
+	}
+
+	public void complemento() {
+		for( int i=0; i < n; i++){
+			System.out.print("\n");
+			for( int w=0; w < n; w++) {
+            	float peso = adj[i][w];
+            	if(peso == Float.POSITIVE_INFINITY)
+					System.out.print("Adj[" + i + "," + w + "]= 1 "); // usei como 1 pq não saibia oq colocar como peso no complemento
+            	else System.out.print("Adj[" + i + "," + w + "]= inf ");
+				}
+	    }
+	    System.out.println("\n\nfim da impressao do grafo complementar do dirigido." );
 	}
 }
