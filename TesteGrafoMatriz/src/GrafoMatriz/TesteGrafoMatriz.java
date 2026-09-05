@@ -8,8 +8,8 @@ public class TesteGrafoMatriz {
 		// insere as arestas do grafo com pesos
 		// A={(0,1,2.5),(0,2,1.0),(2,1,3.2),(2,3,4.0),(1,3,5.5)}
 		g.insereA(0, 1, 2.5f);
-		g.insereA(0, 2, 1.0f);
-		g.insereA(2, 1, 3.2f);
+		g.insereA(2,0 , 1.0f);
+		g.insereA(1, 2, 3.2f);
 		g.insereA(2, 3, 4.0f);
 		g.insereA(1, 3, 5.5f);
 

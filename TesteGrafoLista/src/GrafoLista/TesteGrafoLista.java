@@ -17,10 +17,11 @@ public class TesteGrafoLista {
 	    g.insereA(1,3);
 	    // mostra o grafo preenchido
 	    g.show();
-	    g.removeA(0,3);  // remove a aresta (0,3)
+	    // g.removeA(0,3);  // remove a aresta (0,3)
 	    // mostra o grafo preenchido
-	    System.out.print("\nDepois da remoção da aresta (0,3)\n");
-	    g.show();
+	    // System.out.print("\nDepois da remoção da aresta (0,3)\n");
+	    // g.show();
+		g.inDegree(2);
 	}
 
 }

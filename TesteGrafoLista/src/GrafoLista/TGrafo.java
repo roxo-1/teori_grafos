@@ -102,4 +102,14 @@ public class TGrafo{
 	    }
 	    System.out.print("\n\nfim da impressao do grafo.\n");
 	}
+	public int inDegree(int v){
+		int degree = 0;
+	    // Percorre a lista na posição i do vetor
+	    TNo no = adj[v];
+	    if( no.prox != null ){
+	    	degree++;
+        }
+		System.out.println("Grau de entrada é: "+degree);
+		return degree;
+	}
 }
