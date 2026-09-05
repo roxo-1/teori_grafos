@@ -183,4 +183,53 @@ public class TGrafo {
 	    }
 	    System.out.println("\n\nfim da impressao do grafo complementar do dirigido." );
 	}
+
+	public int conexidade(){
+		//(3 – C3, 2 – C2, 1 – C1 ou 0 – c0
+		//c0 - desconexo - algum vertice isolado
+		int semAresta = 0;
+		for (int i =0; i<n; i++){//linha
+			for(int j=0; j<n; j++){//coluna
+				if (adj[i][j]==0 && i!=j){
+					semAresta += 1;
+					//System.out.println("sem conexão, i: " + i + "j; " + j);
+				}
+			}
+		}
+		if(semAresta == n){
+			System.out.println("Grau de conexividade c0");
+			return 0;
+		}
+		//c3 - se existe caminho i, j, caminho j,i existe
+		int todosCaminhos = 0;
+		for (int i =0; i<n; i++){//linha
+			for(int j=0; j<n; j++){//coluna
+				if (adj[i][j]==1 && adj[j][i]==1 && i!=j){
+					todosCaminhos += 1;
+					//System.out.println("sem conexão, i: " + i + "j; " + j);
+				}
+			}
+		}
+		if(todosCaminhos == m ){
+			System.out.println("Grau de conexividade c3 ");
+			return 3;
+		}
+		//c2 - simplesmente conexo - apartir de um vertice atinge todos os outros por caminho, direta ou indiretamente;
+		int caminho =0;
+		for (int i =0; i<n; i++){//linha
+			for(int j=0; j<n; j++){//coluna
+				if (adj[i][j]==1 || adj[j][i]==1){
+					caminho++;
+					//System.out.println("sem conexão, i: " + i + "j; " + j);
+				}
+			}
+		}
+		if(caminho == m){
+			System.out.println("Grau de conexividade c2: ");
+			return 2;
+		}
+		//c1 - simplesmente conexo - apartir de um vertice atinge todos os outros por percurso, direta ou indiretamente;
+		System.out.println("Grau de conexividade c1:");
+		return 1;
+	}
 }
