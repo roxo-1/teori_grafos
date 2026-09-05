@@ -141,4 +141,22 @@ public class TGrafoND {
 	    }
 	    System.out.println("\nEnfim da impressao do grafo complemntar do não dirigido." );
 	}
+
+	public int conexidadeND(){
+		int aux = 0;
+		for (int i =0; i<n; i++){//linha
+			for(int j=0; j<n; j++){//coluna
+				if (adj[i][j]==0 && i!=j){
+					aux += 1;
+					//System.out.println("sem conexão, i: " + i + "j; " + j);
+				}
+			}
+		}
+		if(aux == n){
+			System.out.println("Não é conexo "+ 1);
+			return 1;
+		}
+		System.out.println("É conexo "+ 0);
+		return 0;
+	}
 }
