@@ -29,6 +29,7 @@ public class TesteGrafoMatriz {
 		g.completo();
 		g.complemento();
 		g.conexidade();
+		
 
 
 		// TGrafoND g = new TGrafoND(4);

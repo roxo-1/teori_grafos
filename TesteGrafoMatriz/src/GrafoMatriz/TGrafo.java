@@ -1,4 +1,11 @@
 package GrafoMatriz;
+//biblioteca para ler arquivos
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 //definição de uma estrutura Matriz de Adjacência para armezanar um grafo
 public class TGrafo {
@@ -234,26 +241,46 @@ public class TGrafo {
 	}
 
 	public void reduzido(){
-		/* 
-		tem vertice de inicio para começar a busca adj[i][j]==v
-			faz a busca até voltar pro vertice v, armazenado os "nós" que passa (adj[i][j])
-			quando achar o vertice v de novo todos os "nós" que passou são uma componente
-			repete para o próximo vertice que não está na componente
-		reconstroe as arestas
-		show() para mostrar o grafo reduzido
-		*/
+		// tem vertice de inicio para começar a busca adj[i][j]==v
+		// 	faz a busca até voltar pro vertice v, armazenado os "nós" que passa (adj[i][j])
+		// 	quando achar o vertice v de novo todos os "nós" que passou são uma componente
+		// 	repete para o próximo vertice que não está na componente
+		// reconstroe as arestas
+		// show() para mostrar o grafo reduzido
 	}
 
 
-	public void modela_grafo(){
-		/*
-		recebe txt
-		lê txt
-		primeira linha == n
-		segunda linha == m
-		a partir dai em loop chama insertA(int v, int w), onde o primeiro numero da linha é v e o segundo é w
-		show() mostrar o grafo
-		*/
+	public void modela_grafo(Path path) throws IOException{
+		// recebe txt
+		// lê txt
+		// primeira linha == n
+		// segunda linha == m
+		// a partir dai em loop chama insertA(int v, int w), onde o primeiro numero da linha é v e o segundo é w
+
+		// Pega todas as linhas
+		List<String> lines = Files.readAllLines(path);
+		int cont = 1;
+
+		for (String line : lines) {
+			// Quebra a linha pelo ponto e virgula
+			String[] nos = line.split(" ");
+			// Soma cada nota na linha
+			for (String no : nos) {
+				if(cont == 1){
+					new TGrafo(Integer.parseInt(no));
+
+				}
+				else if(cont == 2){
+					this.m = Integer.parseInt(no);
+				}
+				else{
+					insereA(Integer.parseInt(no), Integer.parseInt(no), 0.0f);
+				}
+			}
+
+		}
+		// show() mostrar o grafo
+		show();
 	}
 }
 
