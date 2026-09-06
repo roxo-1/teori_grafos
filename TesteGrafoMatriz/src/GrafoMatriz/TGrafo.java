@@ -244,5 +244,16 @@ public class TGrafo {
 		*/
 	}
 
+
+	public void modela_grafo(){
+		/*
+		recebe txt
+		lê txt
+		primeira linha == n
+		segunda linha == m
+		a partir dai em loop chama insertA(int v, int w), onde o primeiro numero da linha é v e o segundo é w
+		show() mostrar o grafo
+		*/
+	}
 }
 
