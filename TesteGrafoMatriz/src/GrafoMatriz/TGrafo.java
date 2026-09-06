@@ -232,4 +232,17 @@ public class TGrafo {
 		System.out.println("Grau de conexividade c1:");
 		return 1;
 	}
+
+	public void reduzido(){
+		/* 
+		tem vertice de inicio para começar a busca adj[i][j]==v
+			faz a busca até voltar pro vertice v, armazenado os "nós" que passa (adj[i][j])
+			quando achar o vertice v de novo todos os "nós" que passou são uma componente
+			repete para o próximo vertice que não está na componente
+		reconstroe as arestas
+		show() para mostrar o grafo reduzido
+		*/
+	}
+
 }
+
