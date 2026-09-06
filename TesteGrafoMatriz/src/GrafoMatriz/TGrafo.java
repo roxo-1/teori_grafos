@@ -247,6 +247,7 @@ public class TGrafo {
 		// 	repete para o próximo vertice que não está na componente
 		// reconstroe as arestas
 		// show() para mostrar o grafo reduzido
+		//retorna o grafo reduzido
 	}
 
 
@@ -277,6 +278,7 @@ public class TGrafo {
 					insereA(Integer.parseInt(no), Integer.parseInt(no), 0.0f);
 				}
 			}
+			cont++;
 
 		}
 		// show() mostrar o grafo
