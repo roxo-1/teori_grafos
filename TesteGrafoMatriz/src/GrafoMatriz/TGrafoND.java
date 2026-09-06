@@ -104,7 +104,7 @@ public class TGrafoND {
 	public int degreeND(int v){
 		int entrada = inDegreeND(v);
 		int saida = outDegreeND(v);
-		int degree = entrada + saida;
+		int degree = (entrada + saida)/2;
 		System.out.println("\nGrau de total é "+degree);
 		return degree;
 	}
