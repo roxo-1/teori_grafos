@@ -140,4 +140,25 @@ public class TGrafo{
 		System.out.print("\nGrau de total é "+ total+"\n");
 		return total;
 	}
+
+	public int saoIguais(TGrafo g1, TGrafo g2){
+		for(int i=0; i<n; i++){
+			TNo no1= g1.adj[i];
+			TNo no2 = g2.adj[i];
+			// System.out.print("\ng1" + g1.adj[i]);
+			// System.out.print("\ng2" + g2.adj[i]);
+			while( no1 != null || no2 != null){
+				System.out.print("\nNo1: " + no1.w);
+				System.out.print("\nNo2: " + no2.w);
+				if(no1.w != no2.w){
+					System.out.print("\nSão diferentes\n");
+					return 0;
+				}
+				no1 = no1.prox;
+				no2 = no2.prox;
+			}
+		}
+		System.out.print("\nSão iguais");
+		return 1;
+	}
 }
