@@ -15,13 +15,16 @@ public class TesteGrafoLista {
 	    g.insereA(2,1);
 	    g.insereA(2,3);
 	    g.insereA(1,3);
+		
+		g.inDegree(2);
+		g.outDegree(2);
+		g.degree(2);
 	    // mostra o grafo preenchido
 	    g.show();
 	    // g.removeA(0,3);  // remove a aresta (0,3)
 	    // mostra o grafo preenchido
 	    // System.out.print("\nDepois da remoção da aresta (0,3)\n");
 	    // g.show();
-		g.inDegree(2);
 	}
 
 }

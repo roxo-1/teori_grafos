@@ -103,7 +103,41 @@ public class TGrafo{
 	    System.out.print("\n\nfim da impressao do grafo.\n");
 	}
 	public int inDegree(int v){
+		System.out.print("inDegree");
 		int degree = 0;
-		return 0;
+		//percorre todas as listas procurando por int v
+		for(int i=0; i<n; i++){
+			TNo no= adj[i];
+			while(no != null){
+				if(no.w == v){
+					degree++;
+					no = no.prox;
+				}	
+			}
+		}
+		System.err.print("fim do indegree");
+		return degree;
+	}
+	public int outDegree(int v){
+		System.out.print("outDegree");
+		int degree = 0;
+		//percorre a lista de int v
+		TNo no = adj[v];
+		while(no != null){
+			degree++;
+			no = no.prox;
+		}
+		return degree;
+	}
+
+	public int degree(int v){
+		System.out.print("degree");
+		int entrada = inDegree(v);
+		int saida = outDegree(v);
+		int total = entrada+saida;
+		System.out.print("\nGrau de entrada é "+ entrada);
+		System.out.print("\nGrau de saída é "+ saida);
+		System.out.print("\nGrau de total é "+ total);
+		return total;
 	}
 }
