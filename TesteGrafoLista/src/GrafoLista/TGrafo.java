@@ -197,4 +197,22 @@ public class TGrafo{
 		System.out.println("Vértice " + v + " não é sorvedouro");
 		return 0;
 	}
+
+	public int ehSimetrico(TGrafo g) {
+		int aux = 0;
+		int teste = this.n;
+		for( int i=0; i < n; i++){
+	        // Percorre a lista na posição i do vetor
+	        TNo no = g.adj[i];
+			if (g.inDegree(no.w) == g.outDegree(no.w)) {
+				aux ++;
+			}
+			no = no.prox;
+		} if ( aux == teste) {
+			System.out.println("Grafo é simétrico");
+			return 1;
+		}
+		System.out.println("Grafo não é simétrico");
+		return 0;
+	}
 }

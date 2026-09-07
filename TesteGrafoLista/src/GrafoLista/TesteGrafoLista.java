@@ -29,14 +29,27 @@ public class TesteGrafoLista {
 	    g2.insereA(2,3);
 	    g2.insereA(1,3);
 		
+		TGrafo g3 = new TGrafo(4);
+	    //insere as arestas do grafo g2
+	    //A={(0,1),(0,2),(1,0),(2,0),(1,3),(3,1)}
+	    g3.insereA(0,1);
+	    g3.insereA(0,2);
+	    g3.insereA(1,0);
+	    g3.insereA(2,0);
+	    g3.insereA(1,3);
+	    g3.insereA(3,1);
+
 
 		g.saoIguais(g, g2);
 	    // mostra o grafo preenchido
 	    g.show();
-		g.ehfonte(g2, 2);
-		g.ehfonte(g2, 0);
-		g.ehsorveduro(g2, 3);
-		g.ehsorveduro(g2, 0);
+		g.ehSimetrico(g2);
+		g.ehSimetrico(g3);
+
+		// g.ehfonte(g2, 2);
+		// g.ehfonte(g2, 0);
+		// g.ehsorveduro(g2, 3);
+		// g.ehsorveduro(g2, 0);
 		// g.showINV();
 	    // g.removeA(0,3);  // remove a aresta (0,3)
 	    // mostra o grafo preenchido
