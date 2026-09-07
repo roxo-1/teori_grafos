@@ -33,8 +33,9 @@ public class TesteGrafoLista {
 		g.saoIguais(g, g2);
 	    // mostra o grafo preenchido
 	    g.show();
-		g.showINV();
-		g.show();
+		g.ehfonte(g2, 2);
+		g.ehfonte(g2, 0);
+		// g.showINV();
 	    // g.removeA(0,3);  // remove a aresta (0,3)
 	    // mostra o grafo preenchido
 	    // System.out.print("\nDepois da remoção da aresta (0,3)\n");
