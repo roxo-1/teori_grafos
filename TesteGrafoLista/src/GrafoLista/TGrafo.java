@@ -161,4 +161,18 @@ public class TGrafo{
 		System.out.print("\nSão iguais");
 		return 1;
 	}
+		public void showINV() {
+	    for( int i=0; i < n; i++){
+	        TNo ant = null;
+			TNo proximo = null;
+	        TNo atual = adj[i];
+	        while( atual != null ){
+	        	proximo = atual.prox; // guarda prox
+				atual.prox = ant; // inverte
+				ant = atual; // avança anterior
+				atual = proximo; //avança atual
+	        }
+			adj[i] = ant;
+		}
+	}
 }
