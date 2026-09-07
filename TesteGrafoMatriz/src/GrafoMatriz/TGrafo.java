@@ -250,39 +250,5 @@ public class TGrafo {
 		//retorna o grafo reduzido
 	}
 
-
-	public void modela_grafo(Path path) throws IOException{
-		// recebe txt
-		// lê txt
-		// primeira linha == n
-		// segunda linha == m
-		// a partir dai em loop chama insertA(int v, int w), onde o primeiro numero da linha é v e o segundo é w
-
-		// Pega todas as linhas
-		List<String> lines = Files.readAllLines(path);
-		int cont = 1;
-
-		for (String line : lines) {
-			// Quebra a linha pelo ponto e virgula
-			String[] nos = line.split(" ");
-			// Soma cada nota na linha
-			for (String no : nos) {
-				if(cont == 1){
-					new TGrafo(Integer.parseInt(no));
-
-				}
-				else if(cont == 2){
-					this.m = Integer.parseInt(no);
-				}
-				else{
-					insereA(Integer.parseInt(no), Integer.parseInt(no), 0.0f);
-				}
-			}
-			cont++;
-
-		}
-		// show() mostrar o grafo
-		show();
-	}
 }
 
