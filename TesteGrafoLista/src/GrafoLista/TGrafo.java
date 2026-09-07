@@ -215,4 +215,19 @@ public class TGrafo{
 		System.out.println("Grafo não é simétrico");
 		return 0;
 	}
+
+	public void converte(TGrafo g){
+        for(int i=0;i<n;i++){
+            TNo no= g.adj[i];
+            for(int j=0;j<n;j++){
+                if(no.w == j){
+                    System.out.print(1);
+                    no = no.prox;
+                }
+                else{
+                    System.out.print(0);
+                }
+            }
+        }
+    }
 }

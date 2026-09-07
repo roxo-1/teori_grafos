@@ -43,8 +43,9 @@ public class TesteGrafoLista {
 		g.saoIguais(g, g2);
 	    // mostra o grafo preenchido
 	    g.show();
-		g.ehSimetrico(g2);
-		g.ehSimetrico(g3);
+		//g.ehSimetrico(g2);
+		//g.ehSimetrico(g3);
+		g.converte(g3);
 
 		// g.ehfonte(g2, 2);
 		// g.ehfonte(g2, 0);
