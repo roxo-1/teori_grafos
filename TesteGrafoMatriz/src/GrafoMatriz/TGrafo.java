@@ -285,9 +285,19 @@ public class TGrafo {
         if (adj[atual][w] != Float.POSITIVE_INFINITY && !alcanca[origem][w]) {
             alcanca[origem][w] = true;
             buscaEmProfundidade(origem, w, alcanca);
-        }
-    }
-}
+       	 }
+    	}
+	}
 
+	public void converte(TGrafo g){
+			for(int i=0;i<n;i++){System.out.print(i+": ");
+				for(int j=0; j<n;j++){
+					if (adj[i][j]==1){
+						System.out.print(j+", ");
+					}
+				}
+				System.out.print("\n");
+			}
+	}
 }
 

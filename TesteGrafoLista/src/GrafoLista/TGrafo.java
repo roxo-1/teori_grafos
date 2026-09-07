@@ -175,4 +175,9 @@ public class TGrafo{
 			adj[i] = ant;
 		}
 	}
+
+	public int ehfonte(TGrafo g, int v) {
+
+		return 0;
+	}
 }

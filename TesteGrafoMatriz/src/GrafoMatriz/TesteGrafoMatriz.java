@@ -70,7 +70,8 @@ public class TesteGrafoMatriz {
 		TGrafo g = carregaGrafo("TesteGrafoMatriz/src/GrafoMatriz/GRAFO.txt");
 		TGrafo reduzido = g.reduzido();
 		g.show();
-		reduzido.show();
+		// reduzido.show();
+		g.converte(g);
 
 
 		// TGrafoND g = new TGrafoND(4);

@@ -3,7 +3,6 @@ package GrafoLista;
 public class TesteGrafoLista {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 	    // Cria um objeto para um Grafo com 4 vértices
 	    // Armazendo em uma lista de adjacência
 	    TGrafo g = new TGrafo(4);
