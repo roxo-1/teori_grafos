@@ -240,15 +240,54 @@ public class TGrafo {
 		return 1;
 	}
 
-	public void reduzido(){
-		// tem vertice de inicio para começar a busca adj[i][j]==v
-		// 	faz a busca até voltar pro vertice v, armazenado os "nós" que passa (adj[i][j])
-		// 	quando achar o vertice v de novo todos os "nós" que passou são uma componente
-		// 	repete para o próximo vertice que não está na componente
-		// reconstroe as arestas
-		// show() para mostrar o grafo reduzido
-		//retorna o grafo reduzido
+	public TGrafo reduzido() {
+		boolean[][] alcanca = new boolean[n][n];
+
+		// descobre quem cada vértice alcança
+		for (int i = 0; i < n; i++) {
+			buscaEmProfundidade(i, i, alcanca);
+		}
+
+		int[] grupo = new int[n];
+		java.util.Arrays.fill(grupo, -1);
+		int totalGrupos = 0;
+
+		// agrupa vértices que se alcançam mutuamente
+		for (int i = 0; i < n; i++) {
+			if (grupo[i] == -1) {
+				grupo[i] = totalGrupos;
+				for (int j = i + 1; j < n; j++) {
+					if (grupo[j] == -1 && alcanca[i][j] && alcanca[j][i]) {
+						grupo[j] = totalGrupos;
+					}
+				}
+				totalGrupos++;
+			}
+		}
+
+		// monta o grafo reduzido
+		TGrafo reduzido = new TGrafo(totalGrupos);
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (adj[i][j] != Float.POSITIVE_INFINITY && grupo[i] != grupo[j]) {
+					reduzido.insereA(grupo[i], grupo[j], 1.0f);
+				}
+			}
+		}
+
+		return reduzido;
 	}
+
+	
+
+	private void buscaEmProfundidade(int origem, int atual, boolean[][] alcanca) {
+    for (int w = 0; w < n; w++) {
+        if (adj[atual][w] != Float.POSITIVE_INFINITY && !alcanca[origem][w]) {
+            alcanca[origem][w] = true;
+            buscaEmProfundidade(origem, w, alcanca);
+        }
+    }
+}
 
 }
 
