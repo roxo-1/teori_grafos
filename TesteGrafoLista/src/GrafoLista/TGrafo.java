@@ -186,4 +186,15 @@ public class TGrafo{
 		System.out.println("Vértice " + v + " não é fonte");
 		return 0;
 	}
+
+	public int ehsorveduro(TGrafo g, int v) {
+		int entrada = g.inDegree(v);
+		int saida = g.outDegree(v);
+		if (saida == 0 && entrada > 0) {
+			System.out.println("Vértice " + v + " é sorvedouro");
+			return 1;
+		}
+		System.out.println("Vértice " + v + " não é sorvedouro");
+		return 0;
+	}
 }

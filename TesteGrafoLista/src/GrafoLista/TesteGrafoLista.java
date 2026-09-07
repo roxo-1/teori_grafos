@@ -35,6 +35,8 @@ public class TesteGrafoLista {
 	    g.show();
 		g.ehfonte(g2, 2);
 		g.ehfonte(g2, 0);
+		g.ehsorveduro(g2, 3);
+		g.ehsorveduro(g2, 0);
 		// g.showINV();
 	    // g.removeA(0,3);  // remove a aresta (0,3)
 	    // mostra o grafo preenchido
