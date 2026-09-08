@@ -199,21 +199,31 @@ public class TGrafo{
 	}
 
 	public int ehSimetrico(TGrafo g) {
-		int aux = 0;
-		int teste = this.n;
-		for( int i=0; i < n; i++){
-	        // Percorre a lista na posição i do vetor
-	        TNo no = g.adj[i];
-			if (g.inDegree(no.w) == g.outDegree(no.w)) {
-				aux ++;
+		for (int i = 0; i < g.n; i++) {
+			TNo no = g.adj[i];
+			while (no != null) {
+				int j = no.w;
+
+				TNo volta = g.adj[j];
+				boolean achou = false;
+				while (volta != null) {
+					if (volta.w == i) {
+						achou = true;
+						break;
+					}
+					volta = volta.prox;
+				}
+
+				if (!achou) {
+					System.out.println("Grafo não é simétrico");
+					return 0;
+				}
+
+				no = no.prox;
 			}
-			no = no.prox;
-		} if ( aux == teste) {
-			System.out.println("Grafo é simétrico");
-			return 1;
 		}
-		System.out.println("Grafo não é simétrico");
-		return 0;
+		System.out.println("Grafo é simétrico");
+		return 1;
 	}
 
 	public void converte(TGrafo g){
@@ -228,6 +238,15 @@ public class TGrafo{
                     System.out.print(0);
                 }
             }
+        }
+    }
+
+	public void completo(){
+        int resultado =  n * (n-1);
+        if(resultado == m){
+            System.out.println("É um grafo completo");
+        } else{
+            System.out.println("Não é um grafo completo");
         }
     }
 }

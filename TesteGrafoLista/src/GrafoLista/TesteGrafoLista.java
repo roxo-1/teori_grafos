@@ -14,7 +14,8 @@ public class TesteGrafoLista {
 	    g.insereA(2,1);
 	    g.insereA(2,3);
 	    g.insereA(1,3);
-		
+		g.show();
+		g.ehSimetrico(g);
 		// g.inDegree(2);
 		// g.outDegree(2);
 		// g.degree(2);
@@ -34,18 +35,24 @@ public class TesteGrafoLista {
 	    //A={(0,1),(0,2),(1,0),(2,0),(1,3),(3,1)}
 	    g3.insereA(0,1);
 	    g3.insereA(0,2);
-	    g3.insereA(1,0);
-	    g3.insereA(2,0);
+		g3.insereA(1,0);
+		g3.insereA(2,0);
 	    g3.insereA(1,3);
 	    g3.insereA(3,1);
 
+		TGrafo g4 = new TGrafo(2);
 
+		g4.insereA(0,1);
+	    g4.insereA(1,0);
+		
 		g.saoIguais(g, g2);
 	    // mostra o grafo preenchido
-	    g.show();
-		//g.ehSimetrico(g2);
-		//g.ehSimetrico(g3);
-		g.converte(g3);
+	    // g.show();
+		// g.ehSimetrico(g);
+		//g.ehSimetrico(g);
+		//g.converte(g);
+		// g3.completo();
+		// g4.completo();
 
 		// g.ehfonte(g2, 2);
 		// g.ehfonte(g2, 0);
