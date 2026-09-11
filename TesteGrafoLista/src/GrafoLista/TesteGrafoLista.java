@@ -77,9 +77,9 @@ public class TesteGrafoLista {
 	    g5.insereA(3,1);
 	    g5.insereA(1,3);
 		g5.show();
-		g5.completo();
-		// g5.removeV(1);
-		// g5.show();
+		// g5.completo();
+		g5.removeV(3);
+		g5.show();
 	}
 
 }

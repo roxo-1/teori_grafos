@@ -113,6 +113,47 @@ public class TGrafoND {
         m--; // Decrementa a contagem de arestas apenas uma vez
     }
 
+    public void removeV( int v){
+		if(v <=0 || v >= n){
+			System.out.print("Não é possível remover esse vértice");
+			return;
+		}
+		//esvazia lista de v
+		TNo atual = adj[v];
+		while (atual != null) {
+			m--;
+			atual = atual.prox;
+		}
+		//desloca v das outras listas
+		for (int i = v; i < n - 1; i++) {
+			adj[i] = adj[i + 1];
+		}
+		adj[n - 1] = null;
+		n--;
+		//remove de fato
+		for (int i = 0; i < n; i++) {
+			TNo no = adj[i];
+			TNo ant = null;
+			while (no != null) {
+				if (no.w == v) {
+					m--;
+					if (ant == null) {
+						adj[i] = no.prox;
+					} else {
+						ant.prox = no.prox;
+					}
+					no = no.prox;
+				} else {
+					if (no.w > v) {
+						no.w--;
+					}
+					ant = no;
+					no = no.prox;
+				}
+			}
+		}
+	} 
+
     public void show() {
         System.out.println("Vértices (n): " + n);
         System.out.println("Arestas (m): " + m);
