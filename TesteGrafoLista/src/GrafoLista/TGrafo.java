@@ -267,19 +267,23 @@ public class TGrafo{
 		return 1;
 	}
 
-	public void converte(TGrafo g){
-        for(int i=0;i<n;i++){
-            TNo no= g.adj[i];
-            for(int j=0;j<n;j++){
-                if(no.w == j){
-                    System.out.print(1);
-                    no = no.prox;
-                }
-                else{
-                    System.out.print(0);
-                }
-            }
-        }
+	public int[][] converte(){
+        int[][] matriz = new int[this.n][this.n];
+		for (int i = 0; i < this.n; i++) {
+			TNo no = this.adj[i];
+			while (no != null) {
+				matriz[i][no.w] = 1;
+				no = no.prox;
+			}
+		}
+		System.out.println("\nMatriz de Adjacência:");
+		for (int i = 0; i < this.n; i++) {
+			for (int j = 0; j < this.n; j++) {
+				System.out.print(matriz[i][j] + " ");
+			}
+		System.out.println();
+		}
+		return matriz;
     }
 
 	public void completo(){
